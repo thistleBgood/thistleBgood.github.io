@@ -36,3 +36,37 @@ body {
     color: gray;
     font-size: 0.75em;
 }
+
+.unimplemented {
+    color: gray;
+}
+
+.unimplemented:after {
+    content: " [NB: feature not yet implemented]";
+    vertical-align: super;
+    font-size: 0.75em;
+}
+
+em {
+    color: red;
+}
+
+.plus {
+    border: 1px solid black;
+    padding: 0.2em;
+}
+
+a {
+    color: gray;
+    text-decoration: none;
+}
+
+a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+a.important {
+    color: green;
+    text-decoration: underline;
+}
