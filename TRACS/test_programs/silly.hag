@@ -1,0 +1,9 @@
+DECLARE x INITIALLY 3
+
+WHILE x > 0 DO
+   SET x TO x - 1
+   IF x MOD 2 = 0 THEN
+      SEND "Even" TO DISPLAY
+   END IF
+END WHILE
+
