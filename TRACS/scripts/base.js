@@ -33,9 +33,14 @@ function process (fileDisplayArea, text) {
 	
 	for (i in lines) {
         console.log(lines[i])
+		
 		var newNode = document.createElement("div");
 		newNode.setAttribute("class", "statement");
-		newNode.innerText = lines[i];
+		if (lines[i] == "") {
+			newNode.innerHTML = "&nbsp;";
+		} else {
+			newNode.innerText = lines[i];
+		}
 		newNode.setAttribute("id", "range_" + i)
 		threadNode.appendChild(newNode);
 	}
