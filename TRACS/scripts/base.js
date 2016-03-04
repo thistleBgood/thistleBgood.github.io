@@ -49,4 +49,7 @@ function process (fileDisplayArea, text) {
 	document.getElementById("annotate").removeAttribute("disabled")
 	
 	localStorage.setItem("count", lines.length)
+
+			document.getElementById("radios").setAttribute("style", "display: default");
+			document.getElementById("dcfbutton").setAttribute("style", "display: default");
 }

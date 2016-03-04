@@ -32,7 +32,7 @@
         <hr>    
         
 
-		<div id="radios">
+		<div id="radios" style="display:none;">
 			<input type="radio" name="highlight_selection" value="statement">Statement</input>
 			<input type="radio" name="highlight_selection" value="expression"  checked="checked">Expression</input>
 			<button id="annotate" onclick="add_annotation()" disabled>Annotate</button>
@@ -42,7 +42,7 @@
 
 		<pre id="fileDisplayArea" style="background: rgba(0,0,128,0.25);display: table;"></pre>
 
-		<button id="dcfbutton" onclick="$.load_dcf_tools()">Load DCF tools</button>
+		<button id="dcfbutton" onclick="$.load_dcf_tools()" style="display:none;">Load DCF tools</button>
 		<br>
 
         <script type="text/javascript">
