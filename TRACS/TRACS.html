@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
 
         <!--<link rel="import" href="header.html">-->
-                <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.2.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://w2ui.com/src/w2ui-1.4.2.min.css" />
         <link rel="stylesheet" href="style/style.css" />
         <link rel="stylesheet" href="style/base.css" />
         <link rel="stylesheet" href="style/ranges.css" />
@@ -16,6 +16,8 @@
         <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.2.min.js"></script>
 		<script src="scripts/base.js"></script>
 		<script src="scripts/ranges.js"></script>
+        <script src="scripts/scf.js"></script>
+        <script src="scripts/dcf.js"></script>
     </head>
     <body>
         
@@ -42,39 +44,9 @@
 
 		<pre id="fileDisplayArea" style="background: rgba(0,0,128,0.25);display: table;"></pre>
 
-		<button id="dcfbutton" onclick="$.load_dcf_tools()" style="display:none;">Load DCF tools</button>
+		<button id="dcfbutton" onclick="load_dcf_tools()" style="display:none;">Load DCF tools</button>
 		<br>
 
-        <script type="text/javascript">
-        
-        // Code to add annotation areas
-         
-
-        code_area_content = document.getElementById("fileDisplayArea");
-
-
-        
-        $.load_dcf_tools = function() {
-
-			document.getElementById("layout").setAttribute("style","width: 100%; height: 600px");
-			
-		code_area_content.setAttribute("style", "background: none;");
-            var pstyle = 'border: 1px solid #dfdfdf; padding: 5px;';
-            $('#layout').w2layout({
-                name: 'layout',
-                padding: 4,
-                panels: [
-                    { type: 'left', size: "30%", resizable: true, style: pstyle, content: code_area_content, style: 'background: rgba(0,0,128,0.25);' },
-                    { type: 'main', style: pstyle, content: 'Trace Table' },
-                    { type: 'preview', size: "50%", resizable: true, style: pstyle, content: 'Evaluator' },
-                    { type: 'right', size: "30%", resizable: true, style: pstyle, content: 'Files' }
-                ]
-            });
-
-			document.getElementById("dcfbutton").remove();
-        };
-        </script>
-        <br>
         <div id="filechoice">
           <input type="file" id="fileInput">
         </div

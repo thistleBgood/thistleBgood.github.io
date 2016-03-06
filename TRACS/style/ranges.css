@@ -1,4 +1,4 @@
-div.thread {
+div.program {
     padding: 1em;
     border: 1px solid black;
     /*float: left;*/
@@ -18,7 +18,7 @@ div.thread {
     background-color:rgba(255,0,0,0.1);
 }
 
-div.thread {
+div.program {
     display: block;
     overflow: auto;
     margin: 0.5em;
@@ -55,7 +55,7 @@ div.thread {
 }
 
 .expression:hover:before, .expression:hover .expression:before {
-	content:"x";
+	content:" ";
 	border-radius: 2em;
 	font-align: center;
 	top: -1em;
@@ -74,3 +74,8 @@ div.thread {
     position: absolute;
     
 }
+
+.program:before {
+    content:"";
+}
+

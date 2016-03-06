@@ -8,7 +8,7 @@ window.onload = function() {
 
 			reader.onload = function(e) {
 				console.log("Importing " + file.name);
-				process(fileDisplayArea, reader.result);
+				preProcess(fileDisplayArea, reader.result);
 			}
 
 
@@ -18,7 +18,7 @@ window.onload = function() {
 }
 
 
-function process (fileDisplayArea, text) {
+function preProcess (fileDisplayArea, text) {
 	
 	while (fileDisplayArea.hasChildNodes()) {
 		fileDisplayArea.removeChild(fileDisplayArea.lastChild);
@@ -28,8 +28,8 @@ function process (fileDisplayArea, text) {
 	
 	lines = text.split("\n");
 	
-	var threadNode = document.createElement("div");
-	threadNode.setAttribute("class", "thread");
+	var programNode = document.createElement("div");
+	programNode.setAttribute("class", "program");
 	
 	for (i in lines) {
         console.log(lines[i])
@@ -42,10 +42,10 @@ function process (fileDisplayArea, text) {
 			newNode.innerText = lines[i];
 		}
 		newNode.setAttribute("id", "range_" + i)
-		threadNode.appendChild(newNode);
+		programNode.appendChild(newNode);
 	}
 	
-	fileDisplayArea.appendChild(threadNode)
+	fileDisplayArea.appendChild(programNode)
 	document.getElementById("annotate").removeAttribute("disabled")
 	
 	localStorage.setItem("count", lines.length)
@@ -53,3 +53,34 @@ function process (fileDisplayArea, text) {
 			document.getElementById("radios").setAttribute("style", "display: default");
 			document.getElementById("dcfbutton").setAttribute("style", "display: default");
 }
+
+
+
+// Code to add annotation areas
+
+
+
+
+
+
+load_dcf_tools = function() {
+
+	var code_area_content = document.getElementById("fileDisplayArea");
+
+	document.getElementById("layout").setAttribute("style","width: 100%; height: 600px");
+
+	code_area_content.setAttribute("style", "background: none;");
+	var pstyle = 'border: 1px solid #dfdfdf; padding: 5px;';
+	$('#layout').w2layout({
+		name: 'layout',
+		padding: 4,
+		panels: [
+			{ type: 'left', size: "30%", resizable: true, style: pstyle, content: code_area_content, style: 'background: rgba(0,0,128,0.25);' },
+			{ type: 'main', style: pstyle, content: 'Trace Table' },
+			{ type: 'preview', size: "50%", resizable: true, style: pstyle, content: 'Evaluator' },
+			{ type: 'right', size: "30%", resizable: true, style: pstyle, content: 'Files' }
+		]
+	});
+
+	document.getElementById("dcfbutton").remove();
+};

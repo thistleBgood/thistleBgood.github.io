@@ -1,0 +1,8 @@
+#fileInput {
+    background-color:rgba(255,0,255,0.3);
+    margin-left: 3em;
+}
+
+.w2ui-layout>div .w2ui-panel .w2ui-panel-content {
+    background: none;
+}
