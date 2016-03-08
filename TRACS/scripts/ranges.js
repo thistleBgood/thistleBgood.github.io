@@ -1,22 +1,3 @@
-function add_annotation() {
-	var radios = document.getElementsByName("highlight_selection");
-	var annotation_type = "";
-	for (var i = 0, length = radios.length; i < length; i++) {
-		if (radios[i].checked) {
-			console.log(radios[i].value);
-			if (radios[i].value == "expression") {
-				annotation_type="e"
-			} else if (radios[i].value == "comment") {
-				annotation_type="c"
-			}
-			break;
-		}
-	}
-	highlightSelection(annotation_type);
-}
-
-/* from highlight.js */
-
 function highlightSelection(t) {
     var userSelection = window.getSelection().getRangeAt(0);
     if (t === "e") {
@@ -48,7 +29,7 @@ function highlightComment(range) {
 }
 
 function highlightStatement(range) {
-    var newNode = document.createElement("div");
+    var newNode = document.createElement("span");
     newNode.setAttribute(
        "class",
        "statement"

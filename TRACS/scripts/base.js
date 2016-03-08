@@ -1,6 +1,6 @@
 window.onload = function() {
-		var fileInput = document.getElementById('fileInput');
-		var fileDisplayArea = document.getElementById('fileDisplayArea');
+		var fileInput = document.getElementById('file_input');
+		var fileDisplayArea = document.getElementById('file_display_area');
 
 		fileInput.addEventListener('change', function(e) {
 			var file = fileInput.files[0];
@@ -19,12 +19,9 @@ window.onload = function() {
 
 
 function preProcess (fileDisplayArea, text) {
-	
-	while (fileDisplayArea.hasChildNodes()) {
-		fileDisplayArea.removeChild(fileDisplayArea.lastChild);
-	}
-	
-	
+
+	// clear file display area
+    clear_child_nodes(fileDisplayArea);
 	
 	lines = text.split("\n");
 	
@@ -34,7 +31,7 @@ function preProcess (fileDisplayArea, text) {
 	for (i in lines) {
         console.log(lines[i])
 		
-		var newNode = document.createElement("div");
+		var newNode = document.createElement("span");
 		newNode.setAttribute("class", "statement");
 		if (lines[i] == "") {
 			newNode.innerHTML = "&nbsp;";
@@ -43,6 +40,7 @@ function preProcess (fileDisplayArea, text) {
 		}
 		newNode.setAttribute("id", "range_" + i)
 		programNode.appendChild(newNode);
+        programNode.appendChild(document.createElement("br"));
 	}
 	
 	fileDisplayArea.appendChild(programNode)
@@ -50,8 +48,8 @@ function preProcess (fileDisplayArea, text) {
 	
 	localStorage.setItem("count", lines.length)
 
-			document.getElementById("radios").setAttribute("style", "display: default");
-			document.getElementById("dcfbutton").setAttribute("style", "display: default");
+			document.getElementById("ranges_tools").setAttribute("style", "display: default");
+			document.getElementById("dcf_button").setAttribute("style", "display: default");
 }
 
 
@@ -59,18 +57,24 @@ function preProcess (fileDisplayArea, text) {
 // Code to add annotation areas
 
 
+// Remove all children of a node
+function clear_child_nodes(node) {
+    while (node.hasChildNodes()) {
+        node.removeChild(node.lastChild);
+    }
+}
 
 
+function load_dcf_tools() {
 
+    // default style for w2ui borders
+    var pstyle = "border: 1px solid #dfdfdf; padding: 5px;";
 
-load_dcf_tools = function() {
+    document.getElementById("layout").setAttribute("style","width: 100%; height: 40em");
 
-	var code_area_content = document.getElementById("fileDisplayArea");
-
-	document.getElementById("layout").setAttribute("style","width: 100%; height: 600px");
-
+    var code_area_content = document.getElementById("file_display_area");
 	code_area_content.setAttribute("style", "background: none;");
-	var pstyle = 'border: 1px solid #dfdfdf; padding: 5px;';
+
 	$('#layout').w2layout({
 		name: 'layout',
 		padding: 4,
@@ -82,5 +86,5 @@ load_dcf_tools = function() {
 		]
 	});
 
-	document.getElementById("dcfbutton").remove();
+	document.getElementById("dcf_button").remove();
 };

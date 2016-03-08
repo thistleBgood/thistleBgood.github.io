@@ -34,21 +34,20 @@
         <hr>    
         
 
-		<div id="radios" style="display:none;">
-			<input type="radio" name="highlight_selection" value="statement">Statement</input>
-			<input type="radio" name="highlight_selection" value="expression"  checked="checked">Expression</input>
-			<button id="annotate" onclick="add_annotation()" disabled>Annotate</button>
+		<div id="ranges_tools" style="display:none;">
+            <button id="annotate" onclick="highlightSelection('s')">Statement</button>
+			<button id="annotate" onclick="highlightSelection('e')">Expression</button>
 		</div>
 
 		<div id="layout"></div>
 
-		<pre id="fileDisplayArea" style="background: rgba(0,0,128,0.25);display: table;"></pre>
+		<pre id="file_display_area" style="background: rgba(0,0,128,0.25);display: table;"></pre>
 
-		<button id="dcfbutton" onclick="load_dcf_tools()" style="display:none;">Load DCF tools</button>
+		<button id="dcf_button" onclick="load_dcf_tools()" style="display:none;">Load DCF tools</button>
 		<br>
 
-        <div id="filechoice">
-          <input type="file" id="fileInput">
+        <div id="file_choice">
+          <input type="file" id="file_input">
         </div>
     </body>
     
