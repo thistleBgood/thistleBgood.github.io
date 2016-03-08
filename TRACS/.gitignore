@@ -39,3 +39,6 @@ Thumbs.db
 # Previous versions of files #
 ##############################
 *.*~
+
+# Misc
+../.idea/

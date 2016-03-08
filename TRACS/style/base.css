@@ -6,3 +6,7 @@
 .w2ui-layout>div .w2ui-panel .w2ui-panel-content {
     background: none;
 }
+
+button {
+    padding: 0.5em;
+}
