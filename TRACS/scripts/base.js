@@ -83,6 +83,17 @@ function load_dcf_tools() {
 
     // default style for w2ui borders
     var pstyle = "border: 1px solid #dfdfdf; padding: 5px;";
+    var filesContent = document.createElement("div")
+
+
+    filesContent.setAttribute("id", "fileBox");
+
+    var addFile = document.createElement("button");
+
+    addFile.setAttribute("onclick", "addNewParent('fileBox', 'file')");
+    addFile.innerText = "Add file";
+
+    filesContent.appendChild(addFile);
 
     document.getElementById("layout").setAttribute("style","width: 100%; height: 40em");
 
@@ -96,9 +107,10 @@ function load_dcf_tools() {
 			{ type: 'left', size: "30%", resizable: true, style: pstyle, content: code_area_content, style: 'background: rgba(0,0,128,0.25);' },
 			{ type: 'main', style: pstyle, content: 'Trace Table' },
 			{ type: 'preview', size: "50%", resizable: true, style: pstyle, content: 'Evaluator' },
-			{ type: 'right', size: "30%", resizable: true, style: pstyle, content: 'Files' }
+			{ type: 'right', size: "30%", resizable: true, style: pstyle, content: filesContent }
 		]
 	});
 
+    loadDefaultFiles("fileBox");
 	document.getElementById("dcf_button").remove();
 };

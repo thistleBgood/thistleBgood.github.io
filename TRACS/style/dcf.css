@@ -1,1 +1,7 @@
 /* Any styles applied to the DCF layer */
+
+.file {
+    margin: 0.5em;
+    padding: 0.25em;
+    border: 1px solid green;
+}
