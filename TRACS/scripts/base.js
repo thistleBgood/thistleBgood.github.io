@@ -90,7 +90,7 @@ function load_dcf_tools() {
 
     var addFile = document.createElement("button");
 
-    addFile.setAttribute("onclick", "addNewParent('fileBox', 'file')");
+    addFile.setAttribute("onclick", "addNewParent('fileBox', 'file', '', '')");
     addFile.innerText = "Add file";
 
     filesContent.appendChild(addFile);
