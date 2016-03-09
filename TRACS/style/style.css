@@ -1,3 +1,5 @@
+/* General styles applied to the entire site */
+
 body {
     font-family: sans-serif;
     min-width: 500px;
@@ -69,4 +71,11 @@ a:hover {
 a.important {
     color: green;
     text-decoration: underline;
+}
+
+.layer_tool {
+    display: inline-block;
+
+    margin: 1em;
+
 }

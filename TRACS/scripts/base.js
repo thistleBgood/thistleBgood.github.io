@@ -1,22 +1,35 @@
 window.onload = function() {
-		var fileInput = document.getElementById('file_input');
-		var fileDisplayArea = document.getElementById('file_display_area');
 
-		fileInput.addEventListener('change', function(e) {
-			var file = fileInput.files[0];
-			var reader = new FileReader();
+    setup_page ();
 
-			reader.onload = function(e) {
-				console.log("Importing " + file.name);
-				preProcess(fileDisplayArea, reader.result);
-			}
-
-
-			reader.readAsText(file);
-		});
-		
+    add_import_listener('file_input_button', 'file_display_area');
 }
 
+function setup_page () {
+
+    document.getElementById("ranges_tools").setAttribute("style", "display:none;");
+    document.getElementById("scf_tools").setAttribute("style", "display:none;");
+    document.getElementById("dcf_tools").setAttribute("style", "display:none;");
+}
+
+
+function add_import_listener (input_button_id, file_display_id) {
+    var fileInput = document.getElementById(input_button_id);
+    var fileDisplayArea = document.getElementById(file_display_id);
+
+    fileInput.addEventListener('change', function(e) {
+        var file = fileInput.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            console.log("Importing " + file.name);
+            preProcess(fileDisplayArea, reader.result);
+        }
+
+
+        reader.readAsText(file);
+    });
+}
 
 function preProcess (fileDisplayArea, text) {
 
@@ -44,12 +57,13 @@ function preProcess (fileDisplayArea, text) {
 	}
 	
 	fileDisplayArea.appendChild(programNode)
-	document.getElementById("annotate").removeAttribute("disabled")
+	//document.getElementById("annotate").removeAttribute("disabled")
 	
 	localStorage.setItem("count", lines.length)
 
 			document.getElementById("ranges_tools").setAttribute("style", "display: default");
-			document.getElementById("dcf_button").setAttribute("style", "display: default");
+            document.getElementById("scf_tools").setAttribute("style", "display: default");
+			document.getElementById("dcf_tools").setAttribute("style", "display: default");
 }
 
 

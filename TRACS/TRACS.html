@@ -34,21 +34,37 @@
         <hr>    
         
 
-		<div id="ranges_tools" style="display:none;">
-            <button id="annotate" onclick="highlightSelection('s')"><span class="statement">Statement</span></button>
-			<button id="annotate" onclick="highlightSelection('e')"><span class="expression">Expression</span></button>
-		</div>
+        <div>
 
-		<div id="layout"></div>
+            <div id="file_choice" class="layer_tool">
+                Start new project<br>
+                <input type="file" id="file_input_button">
+            </div>
 
-		<pre id="file_display_area" style="background: rgba(0,0,128,0.25);display: table;"></pre>
+            <div id="ranges_tools" class="layer_tool">
+                Add Ranges<br>
+                <button onclick="highlightSelection('s')"><span class="statement">Statement</span></button>
+                <button onclick="highlightSelection('e')"><span class="expression">Expression</span></button>
+            </div>
 
-		<button id="dcf_button" onclick="load_dcf_tools()" style="display:none;">Load DCF tools</button>
-		<br>
+            <div id="scf_tools" class="layer_tool">
+                Add Static Control Flow elements<br>
+                <button class="unimplemented">Arrow</button>
+                <button class="unimplemented">Decision</button>
+            </div>
 
-        <div id="file_choice">
-          <input type="file" id="file_input">
+            <div id="dcf_tools" class="layer_tool">
+                DCF Tools<br>
+                <button id="dcf_button" onclick="load_dcf_tools()">Load DCF tools</button>
+            </div>
+
         </div>
+
+
+		<div id="layout"><pre id="file_display_area" style="background: rgba(0,0,128,0.25);display: table;"></pre></div>
+
+
+
     </body>
     
 </html>

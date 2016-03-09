@@ -1,3 +1,5 @@
+/* Any styles applied to the ranges layer */
+
 .program {
     padding: 1em;
     margin: 0.5em;
@@ -27,10 +29,11 @@
     background: #e2ffe2;
     border: 1px solid green;
     margin: 0;
-    display: inline-block;
 	position: relative;
 }
 
+
+/* Default to hiding every nested sub expression */
 .expression .expression {
     border: 0;
 }
@@ -40,7 +43,9 @@
     padding: 0;
 }
 
-.expression:hover, .expression:hover .expression {
+/* Bucket model, show all nested expressions on mouseover */
+.expression:hover, .expression:hover .expression{
+    display: inline-block;
     border: 1px solid blue;
     border-top: none;
     margin: 0.1em;
@@ -48,6 +53,7 @@
     background-color:rgba(255,255,255,0.5);
 }
 
+/* Bucket model before */
 .expression:hover:before, .expression:hover .expression:before {
 	content:" ";
 	border-radius: 2em;
