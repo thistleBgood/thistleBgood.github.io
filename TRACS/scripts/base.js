@@ -41,7 +41,7 @@ function preProcess (fileDisplayArea, fileName, text) {
 	lines = text.split("\n");
 	
 	var programNode = document.createElement("div");
-	programNode.setAttribute("class", "program");
+	programNode.setAttribute("class", "file program");
 
     var nameNode = document.createElement("div");
     nameNode.innerText = fileName;
@@ -98,7 +98,7 @@ function load_dcf_tools() {
 
     var addFile = document.createElement("button");
 
-    addFile.setAttribute("onclick", "addNewEntry('fileBox', 'file', '', '')");
+    addFile.setAttribute("onclick", "addNewFile('fileBox', 'file', '', '')");
     addFile.innerText = "Add file";
 
     filesContent.appendChild(addFile);
@@ -108,13 +108,21 @@ function load_dcf_tools() {
     var code_area_content = document.getElementById("file_display_area");
 	code_area_content.setAttribute("style", "background: none;");
 
+    var expressionArea = document.createElement("div");
+
+    expressionArea.setAttribute("id", "expression_area");
+
+    var traceArea = document.createElement("div");
+
+    traceArea.setAttribute("id", "trace_area");
+
 	$('#layout').w2layout({
 		name: 'layout',
 		padding: 4,
 		panels: [
 			{ type: 'left', size: "30%", resizable: true, style: 'background: rgba(0,0,128,0.25);', content: code_area_content},
-			{ type: 'main', style: pstyle, content: 'Trace Table' },
-			{ type: 'preview', size: "50%", resizable: true, style: pstyle, content: 'Evaluator' },
+			{ type: 'main', style: pstyle, content: traceArea },
+			{ type: 'preview', size: "50%", resizable: true, style: pstyle, content: expressionArea},
 			{ type: 'right', size: "30%", resizable: true, style: pstyle + 'background: rgba(0,128,0,0.25);' , content: filesContent }
 		]
 	});

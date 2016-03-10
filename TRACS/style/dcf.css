@@ -1,8 +1,55 @@
 /* Any styles applied to the DCF layer */
 
-.file {
-    margin: 0.5em;
-    padding: 0.25em;
+.in {
+    color: black;
+}
+
+.out {
+    color: blue;
+}
+
+.error {
+    color: red;
+}
+
+.evaluation {
+    background: #e2ffe2;
     border: 1px solid green;
-    background: white;
+    position: relative;
+    display: inline-block;
+    float: left;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.evaluation:hover {
+    background: rgba(255,255,255,0.5);
+    border: 1px solid blue;
+    border-top: 1px solid transparent;
+
+}
+
+.variable {
+    border: 1px solid gray;
+    padding: 0.25em;
+}
+
+.var_name {
+    display: inline-block;
+    position: relative;
+    border:none;
+
+}
+
+.var_entries {
+    display: inline-block;
+}
+
+.variable_entry {
+    color: green;
+    display: inline-block;
+    float: left;
+    padding: 0.25em;
+    border: 1px dashed green;
+    margin: 0.25em;
 }

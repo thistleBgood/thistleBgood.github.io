@@ -6,4 +6,3 @@ WHILE x > 0 DO
       SEND "Even" TO DISPLAY
    END IF
 END WHILE
-

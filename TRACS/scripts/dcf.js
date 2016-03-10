@@ -1,60 +1,95 @@
 /* From parentChild.html */
 
-count = 0;
+fileCount = 0;
+varCount = 0;
 
-function loadDefaultFiles(containerID) {
+function addNewVariableTrace(containerID) {
+    var variableDiv = document.createElement("div");
+    variableDiv.setAttribute("class", "variable");
+    variableDiv.setAttribute("id", "variable_" + ++varCount);
 
-    addNewEntry(containerID, "file", "<<stdIn>>", ".");
-    addNewEntry(containerID, "file", "<<stdOut>>", ".");
-    addNewEntry(containerID, "file", "<<stdErr>>", ".");
+    variableDiv.appendChild(createEditableDiv("name var_name", document.createTextNode("variable")));
+
+    var entryDiv = document.createElement("div");
+    entryDiv.setAttribute("class", "var_entries");
+
+
+    entryDiv.appendChild(createEditableDiv("variable_entry", document.createTextNode(".")));
+    variableDiv.appendChild(entryDiv);
+    document.getElementById(containerID).appendChild(variableDiv);
+
+
+
+    console.log("Added variable " + varCount + " @ " + new Date().toLocaleString());
 }
 
-function addNewEntry(containerID, childClass, fileName, content) {
-    var newDiv = document.createElement("div");
-    newDiv.setAttribute("class", childClass);
-    newDiv.setAttribute("id", "file_" + ++count);
-    newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
+function addNewFile(containerID, fileClass, fileName, content) {
+    var fileDiv = document.createElement("div");
+    fileDiv.setAttribute("class", fileClass);
+    fileDiv.setAttribute("id", "file_" + ++fileCount);
 
-    var nameDiv = document.createElement("div")
-    nameDiv.setAttribute("class", "name");
-    nameDiv.setAttribute("contenteditable", "");
+    if (fileName == "") { fileName = "untitled.txt"; }
+    fileDiv.appendChild(createEditableDiv("name", document.createTextNode(fileName)));
+    fileDiv.appendChild(createEditableDiv("", document.createTextNode(content)));
 
-    if (fileName.length > 0) {
-        nameDiv.appendChild(document.createTextNode(fileName));
-    } else {
-        nameDiv.appendChild(document.createTextNode("File " + count));
-    }
+    document.getElementById(containerID).appendChild(fileDiv);
 
-    newDiv.appendChild(nameDiv);
+    console.log("Added file " + fileCount + " @ " + new Date().toLocaleString());
+}
 
-    var contentDiv = document.createElement("div")
+function addNewEvaluation(containerID) {
+    var evalDiv = document.createElement("div");
+    evalDiv.setAttribute("class", "evaluation");
 
-    contentDiv.setAttribute("contenteditable", "");
+    evalDiv.appendChild(createEditableDiv("", document.createTextNode("test")));
 
-    contentDiv.appendChild(document.createTextNode(content))
+    document.getElementById(containerID).appendChild(evalDiv);
+}
 
-    newDiv.appendChild(contentDiv);
+function createEditableDiv(htmlClass, content) {
+    var editableDiv = document.createElement("div");
+    editableDiv.setAttribute("contenteditable", "");
+    editableDiv.setAttribute("class", htmlClass);
 
-    document.getElementById(containerID).appendChild(newDiv);
-    /*
-     var newParent = document.createElement('div');
-     newParent.setAttribute("class", "parent");
-     newParent.appendChild(document.createTextNode(count));
-     document.getElementById("tt1").appendChild(newParent);*/
-    //console.log("Added new variable " + count + " at " + new Date().toLocaleString());
+    editableDiv.appendChild(content);
+    return editableDiv;
 }
 
 function addNewDiv() {
     var newDiv = document.createElement('div');
     newDiv.setAttribute("class", "child");
     newDiv.setAttribute("id", "file" + ++count);
-    newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
+    //newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
     newDiv.appendChild(document.createTextNode(count));
     document.getElementById("parent").appendChild(newDiv);
     console.log("Added new node " + count + " at " + new Date().toLocaleString());
     nodes.push(count)
     localStorage.setItem("count", count)
     localStorage.setItem("nodes", nodes)
+}
+
+
+function loadDefaultFiles(containerID) {
+
+    addNewFile(containerID, "file in", "<<stdIn>>", "");
+    addNewFile(containerID, "file out", "<<stdOut>>", "");
+    addNewFile(containerID, "file error", "<<stdErr>>", "");
+
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+    addNewEvaluation("expression_area");
+
+    addNewVariableTrace("trace_area");
+
 }
 
 /*
