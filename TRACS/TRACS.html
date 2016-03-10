@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="style/ranges.css" />
         <link rel="stylesheet" href="style/scf.css" />
         <link rel="stylesheet" href="style/dcf.css" />
-        <title>TRACS Online</title>
 
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="http://w2ui.com/src/w2ui-1.4.2.min.js"></script>
@@ -18,6 +17,8 @@
 		<script src="scripts/ranges.js"></script>
         <script src="scripts/scf.js"></script>
         <script src="scripts/dcf.js"></script>
+
+        <title>TRACS Online</title>
     </head>
     <body>
         
@@ -43,8 +44,9 @@
 
             <div id="ranges_tools" class="layer_tool">
                 Add Ranges<br>
-                <button onclick="highlightSelection('s')"><span class="statement">Statement</span></button>
-                <button onclick="highlightSelection('e')"><span class="expression">Expression</span></button>
+                <button onclick="highlightStatement()"><span class="statement">Statement</span></button>
+                <button onclick="highlightExpression()"><span class="expression">Expression</span></button>
+                <button onclick="highlightComment()"><span class="comment">Comment</span></button>
             </div>
 
             <div id="scf_tools" class="layer_tool">

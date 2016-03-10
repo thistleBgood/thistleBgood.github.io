@@ -1,8 +1,7 @@
 window.onload = function() {
 
-    setup_page ();
-
     add_import_listener('file_input_button', 'file_display_area');
+    setup_page ();
 }
 
 function setup_page () {
@@ -90,7 +89,7 @@ function load_dcf_tools() {
 
     var addFile = document.createElement("button");
 
-    addFile.setAttribute("onclick", "addNewParent('fileBox', 'file', '', '')");
+    addFile.setAttribute("onclick", "addNewEntry('fileBox', 'file', '', '')");
     addFile.innerText = "Add file";
 
     filesContent.appendChild(addFile);

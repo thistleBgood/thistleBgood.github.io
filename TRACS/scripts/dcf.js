@@ -4,12 +4,12 @@ count = 0;
 
 function loadDefaultFiles(containerID) {
 
-    addNewParent(containerID, "file", "stdIn", ".");
-    addNewParent(containerID, "file", "stdOut", ".");
-    addNewParent(containerID, "file", "stdErr", ".");
+    addNewEntry(containerID, "file", "<<stdIn>>", ".");
+    addNewEntry(containerID, "file", "<<stdOut>>", ".");
+    addNewEntry(containerID, "file", "<<stdErr>>", ".");
 }
 
-function addNewParent(containerID, childClass, fileName, content) {
+function addNewEntry(containerID, childClass, fileName, content) {
     var newDiv = document.createElement("div");
     newDiv.setAttribute("class", childClass);
     newDiv.setAttribute("contenteditable", "");

@@ -11,6 +11,8 @@
     overflow: auto;
 }
 
+/*-----------------------------------------*/
+
 .statement {
 	margin: 0.25em 0;
 	background: none;
@@ -22,7 +24,7 @@
     background-color:rgba(255,0,0,0.1);
 }
 
-
+/*-----------------------------------------*/
 
 .expression {
     padding: 0 3px;
@@ -31,7 +33,6 @@
     margin: 0;
 	position: relative;
 }
-
 
 /* Default to hiding every nested sub expression */
 .expression .expression {
@@ -66,4 +67,20 @@
 	border: 1px solid;
 	background: white;
 	position: absolute;
+}
+
+button .expression:hover:before, button .expression:hover .expression:before {
+    display: none;
+}
+
+button .expression:hover, button .expression:hover .expression {
+    margin: 0;
+    padding: 0 3px;
+}
+
+/*-----------------------------------------*/
+
+.comment {
+    background: lightgray;
+    color: gray;
 }
