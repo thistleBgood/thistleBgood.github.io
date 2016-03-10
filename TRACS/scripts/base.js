@@ -1,6 +1,6 @@
 window.onload = function() {
 
-    add_import_listener('file_input_button', 'file_display_area');
+    add_import_listener('file_input_button', 'file_display_area', 'file_name');
     setup_page ();
 }
 
@@ -12,7 +12,7 @@ function setup_page () {
 }
 
 
-function add_import_listener (input_button_id, file_display_id) {
+function add_import_listener (input_button_id, file_display_id, file_name_id) {
     var fileInput = document.getElementById(input_button_id);
     var fileDisplayArea = document.getElementById(file_display_id);
 
@@ -22,7 +22,7 @@ function add_import_listener (input_button_id, file_display_id) {
 
         reader.onload = function(e) {
             console.log("Importing " + file.name);
-            preProcess(fileDisplayArea, reader.result);
+            preProcess(fileDisplayArea, file.name, reader.result);
         }
 
 
@@ -30,15 +30,24 @@ function add_import_listener (input_button_id, file_display_id) {
     });
 }
 
-function preProcess (fileDisplayArea, text) {
+function preProcess (fileDisplayArea, fileName, text) {
 
 	// clear file display area
     clear_child_nodes(fileDisplayArea);
+
+
+
 	
 	lines = text.split("\n");
 	
 	var programNode = document.createElement("div");
 	programNode.setAttribute("class", "program");
+
+    var nameNode = document.createElement("div");
+    nameNode.innerText = fileName;
+    nameNode.setAttribute("contenteditable", "");
+    nameNode.setAttribute("class", "name");
+    programNode.appendChild(nameNode);
 	
 	for (i in lines) {
         console.log(lines[i])
@@ -103,10 +112,10 @@ function load_dcf_tools() {
 		name: 'layout',
 		padding: 4,
 		panels: [
-			{ type: 'left', size: "30%", resizable: true, style: pstyle, content: code_area_content, style: 'background: rgba(0,0,128,0.25);' },
+			{ type: 'left', size: "30%", resizable: true, style: 'background: rgba(0,0,128,0.25);', content: code_area_content},
 			{ type: 'main', style: pstyle, content: 'Trace Table' },
 			{ type: 'preview', size: "50%", resizable: true, style: pstyle, content: 'Evaluator' },
-			{ type: 'right', size: "30%", resizable: true, style: pstyle, content: filesContent }
+			{ type: 'right', size: "30%", resizable: true, style: pstyle + 'background: rgba(0,128,0,0.25);' , content: filesContent }
 		]
 	});
 

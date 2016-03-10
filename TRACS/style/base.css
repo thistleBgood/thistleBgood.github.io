@@ -10,10 +10,6 @@ button {
     padding: 0.5em;
 }
 
-br {
-    line-height: 2em;
-}
-
 button.unimplemented:after {
     content: "[unimplemented]";
     vertical-align: super;

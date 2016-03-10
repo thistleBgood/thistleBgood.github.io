@@ -38,32 +38,34 @@
         <div>
 
             <div id="file_choice" class="layer_tool">
-                Start new project<br>
+                <div>Start new project</div>
                 <input type="file" id="file_input_button">
             </div>
 
             <div id="ranges_tools" class="layer_tool">
-                Add Ranges<br>
+                <div>Add Ranges</div>
                 <button onclick="highlightStatement()"><span class="statement">Statement</span></button>
                 <button onclick="highlightExpression()"><span class="expression">Expression</span></button>
                 <button onclick="highlightComment()"><span class="comment">Comment</span></button>
             </div>
 
             <div id="scf_tools" class="layer_tool">
-                Add Static Control Flow elements<br>
+                <div>Add Static Control Flow elements</div>
                 <button class="unimplemented">Arrow</button>
                 <button class="unimplemented">Decision</button>
             </div>
 
             <div id="dcf_tools" class="layer_tool">
-                DCF Tools<br>
+                <div>DCF Tools</div>
                 <button id="dcf_button" onclick="load_dcf_tools()">Load DCF tools</button>
             </div>
 
         </div>
 
 
-		<div id="layout"><pre id="file_display_area" style="background: rgba(0,0,128,0.25);display: table;"></pre></div>
+		<div id="layout">
+            <pre id="file_display_area" style="background: rgba(0,0,128,0.25);display: table;"></pre>
+        </div>
 
 
 

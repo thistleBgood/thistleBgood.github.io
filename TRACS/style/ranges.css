@@ -11,6 +11,10 @@
     overflow: auto;
 }
 
+.program br {
+    line-height: 2em;
+}
+
 /*-----------------------------------------*/
 
 .statement {
@@ -83,4 +87,11 @@ button .expression:hover, button .expression:hover .expression {
 .comment {
     background: lightgray;
     color: gray;
+}
+
+.name {
+    padding: 0.25em 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
+    background-color: rgba(255,255,0,0.5);
 }

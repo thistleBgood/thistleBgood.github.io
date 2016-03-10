@@ -12,21 +12,29 @@ function loadDefaultFiles(containerID) {
 function addNewEntry(containerID, childClass, fileName, content) {
     var newDiv = document.createElement("div");
     newDiv.setAttribute("class", childClass);
-    newDiv.setAttribute("contenteditable", "");
     newDiv.setAttribute("id", "file_" + ++count);
     newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
-    if (fileName.length > 0) {
-        newDiv.appendChild(document.createTextNode(fileName));
-    } else {
-        newDiv.appendChild(document.createTextNode("File " + count));
-    }
-    newDiv.appendChild(document.createElement("hr"));
 
-    if (content.length > 0) {
-        newDiv.appendChild(document.createTextNode(content));
+    var nameDiv = document.createElement("div")
+    nameDiv.setAttribute("class", "name");
+    nameDiv.setAttribute("contenteditable", "");
+
+    if (fileName.length > 0) {
+        nameDiv.appendChild(document.createTextNode(fileName));
     } else {
-        newDiv.appendChild(document.createTextNode(""));
+        nameDiv.appendChild(document.createTextNode("File " + count));
     }
+
+    newDiv.appendChild(nameDiv);
+
+    var contentDiv = document.createElement("div")
+
+    contentDiv.setAttribute("contenteditable", "");
+
+    contentDiv.appendChild(document.createTextNode(content))
+
+    newDiv.appendChild(contentDiv);
+
     document.getElementById(containerID).appendChild(newDiv);
     /*
      var newParent = document.createElement('div');
