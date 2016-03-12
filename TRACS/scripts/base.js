@@ -41,7 +41,7 @@ function preProcess (fileDisplayArea, fileName, text) {
 	lines = text.split("\n");
 	
 	var programNode = document.createElement("div");
-	programNode.setAttribute("class", "file program");
+	programNode.setAttribute("class", "program file");
 
     var nameNode = document.createElement("div");
     nameNode.innerText = fileName;
