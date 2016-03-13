@@ -46,7 +46,6 @@
     border: 1px solid green;
     margin: 0;
 	position: relative;
-    display: inline-block;
 }
 
 /* Default to hiding every nested sub expression */

@@ -67,11 +67,11 @@ function preProcess (fileDisplayArea, fileName, text) {
 	fileDisplayArea.appendChild(programNode)
 	//document.getElementById("annotate").removeAttribute("disabled")
 	
-	localStorage.setItem("count", lines.length)
+	//localStorage.setItem("count", lines.length)
 
-			document.getElementById("ranges_tools").setAttribute("style", "display: default");
-            document.getElementById("scf_tools").setAttribute("style", "display: default");
-			document.getElementById("dcf_tools").setAttribute("style", "display: default");
+    document.getElementById("ranges_tools").setAttribute("style", "display: default");
+    document.getElementById("scf_tools").setAttribute("style", "display: default");
+    document.getElementById("dcf_tools").setAttribute("style", "display: default");
 }
 
 

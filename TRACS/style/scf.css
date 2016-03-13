@@ -1,1 +1,27 @@
 /* Any styles applied to the SCF layer */
+
+#origin-point {
+    color: white;
+    font-weight: bold;
+    background-color: #06a;
+    margin: 5em auto;
+    text-align: center;
+    line-height: 70px;
+    height: 70px;
+    width: 70px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+
+#new-link-line {
+    position: absolute;
+    width: 3px;
+    background-color: #06a;
+    z-index: 100;
+    -webkit-transform-origin: top left;
+    -moz-transform-origin: top left;
+    -o-transform-origin: top left;
+    -ms-transform-origin: top left;
+    transform-origin: top left;
+}
