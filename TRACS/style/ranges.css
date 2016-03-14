@@ -2,7 +2,7 @@
 
 
 .file {
-    margin: 0.5em;
+    margin: 0.5em 0;
     padding: 0.25em;
     border: 1px solid green;
     background: white;
@@ -102,4 +102,8 @@ button .expression:hover, button .expression:hover .expression {
     border-bottom: 1px solid black;
     margin-bottom: 1em;
     background-color: rgba(255,255,0,0.5);
+}
+
+.procedure {
+    border: 1px solid orange;
 }

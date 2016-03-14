@@ -1,22 +1,26 @@
 function highlightExpression() {
-    highlightSelection("expression");
+    highlightSelection("expression", "span");
 }
 
 function highlightStatement() {
-    highlightSelection("statement");
+    highlightSelection("statement", "span");
 }
 
 function highlightComment() {
-    highlightSelection("comment");
+    highlightSelection("comment", "span");
+}
+
+function highlightProcedure() {
+    highlightSelection("procedure", "div");
 }
 
 
 // ADAPTED FROM http://stackoverflow.com/a/12823606
-function highlightRange(range, type) {
+function highlightRange(range, classType, elementType) {
     if (range.toString().length > 0) {
         console.log(range.toString());
-        var newNode = document.createElement("span");
-        newNode.setAttribute("class", type);
+        var newNode = document.createElement(elementType);
+        newNode.setAttribute("class", classType);
         range.surroundContents(newNode);
     }
 
