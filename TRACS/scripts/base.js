@@ -1,3 +1,5 @@
+var newACS = new ACS();
+
 window.onload = function() {
     add_import_listener('file_input_button', 'file_display_area');
     display_tools("none");
@@ -29,6 +31,7 @@ function add_import_listener (input_button_id, file_display_id) {
 
 function preProcess (fileDisplayArea, fileName, text) {
 
+
     clear_child_nodes(fileDisplayArea);
     setup_program_node(fileDisplayArea, fileName, text);
     display_tools("default");
@@ -51,7 +54,10 @@ function setup_program_node(fileDisplayArea, fileName, text) {
     nameNode.innerText = fileName;
     nameNode.setAttribute("contenteditable", "");
     nameNode.setAttribute("class", "name");
+    nameNode.setAttribute("id", "ACS_filename")
     programNode.appendChild(nameNode);
+
+    newACS.setupBase(nameNode, text);
 
     for (var i in lines) {
         create_initial_range_node(programNode, lines[i], i);
