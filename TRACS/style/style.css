@@ -79,3 +79,7 @@ a.important {
     margin: 1em;
 
 }
+
+button a {
+    color: black;
+}
