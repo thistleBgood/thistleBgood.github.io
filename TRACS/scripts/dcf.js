@@ -7,15 +7,11 @@ function addNewVariableTrace(containerID) {
     var variableDiv = document.createElement("div");
     variableDiv.setAttribute("class", "variable");
     variableDiv.setAttribute("id", "variable_" + ++varCount);
+    variableDiv.setAttribute("title", "Click to edit");
 
     variableDiv.appendChild(createEditableDiv("name var_name", document.createTextNode("variable")));
 
-    var entryDiv = document.createElement("div");
-    entryDiv.setAttribute("class", "var_entries");
-
-
-    entryDiv.appendChild(createEditableDiv("variable_entry", document.createTextNode(".")));
-    variableDiv.appendChild(entryDiv);
+    variableDiv.appendChild(addNewVariableEntry());
     document.getElementById(containerID).appendChild(variableDiv);
 
 
@@ -23,12 +19,21 @@ function addNewVariableTrace(containerID) {
     console.log("Added variable " + varCount + " @ " + new Date().toLocaleString());
 }
 
+function addNewVariableEntry() {
+    var entryDiv = document.createElement("div");
+    entryDiv.setAttribute("class", "var_entries");
+    entryDiv.appendChild(createEditableDiv("variable_entry", document.createTextNode(".")));
+    return entryDiv;
+}
+
 function addNewFile(containerID, fileClass, fileName, content) {
     var fileDiv = document.createElement("div");
     fileDiv.setAttribute("class", fileClass);
     fileDiv.setAttribute("id", "file_" + ++fileCount);
 
+    // if no filename supplied, use default
     if (fileName == "") { fileName = "untitled.txt"; }
+
     fileDiv.appendChild(createEditableDiv("name", document.createTextNode(fileName)));
     fileDiv.appendChild(createEditableDiv("", document.createTextNode(content)));
 
@@ -55,20 +60,6 @@ function createEditableDiv(htmlClass, content) {
     return editableDiv;
 }
 
-function addNewDiv() {
-    var newDiv = document.createElement('div');
-    newDiv.setAttribute("class", "child");
-    newDiv.setAttribute("id", "file" + ++count);
-    //newDiv.setAttribute("onclick", "removeDiv(" + count + ")")
-    newDiv.appendChild(document.createTextNode(count));
-    document.getElementById("parent").appendChild(newDiv);
-    console.log("Added new node " + count + " at " + new Date().toLocaleString());
-    nodes.push(count)
-    localStorage.setItem("count", count)
-    localStorage.setItem("nodes", nodes)
-}
-
-
 function loadDefaultFiles(containerID) {
 
     addNewFile(containerID, "file in", "<<stdIn>>", "");
@@ -89,6 +80,17 @@ function loadDefaultFiles(containerID) {
     addNewEvaluation("expression_area");
 
     addNewVariableTrace("trace_area");
+
+/*
+    var container = document.getElementById(containerID);
+    console.log("Logging children");
+    console.log(container.children.length);
+
+    for (var i in container.children.length) {
+        if (container.children[i])
+    }
+*/
+
 
 }
 

@@ -21,7 +21,7 @@ function add_import_listener (input_button_id, file_display_id) {
         reader.readAsText(file);
 
         reader.onload = function(e) {
-            console.log("Importing " + file.name);
+            //console.log("Importing " + file.name);
             preProcess(fileDisplayArea, file.name, reader.result);
         }
     });
@@ -54,21 +54,27 @@ function setup_program_node(fileDisplayArea, fileName, text) {
     programNode.appendChild(nameNode);
 
     for (var i in lines) {
-        console.log(lines[i])
-
-        var newNode = document.createElement("span");
-        newNode.setAttribute("class", "statement");
-        if (lines[i] == "") {
-            newNode.innerHTML = "&nbsp;";
-        } else {
-            newNode.innerText = lines[i];
-        }
-        newNode.setAttribute("id", "range_" + i)
-        programNode.appendChild(newNode);
-        programNode.appendChild(document.createElement("br"));
+        create_initial_range_node(programNode, lines[i], i);
     }
 
     fileDisplayArea.appendChild(programNode)
+}
+
+function create_initial_range_node(programNode, content, rangeID) {
+    var newNode = document.createElement("span");
+    newNode.setAttribute("id", "range_" + rangeID)
+    newNode.setAttribute("class", "statement");
+
+    if (content == "") {
+        // Added so that lines actually appear. Without this, they collapse into nothing.
+        newNode.innerHTML = "&nbsp;";
+    } else {
+        newNode.innerText = content;
+    }
+
+    programNode.appendChild(newNode);
+    // Add "newline" element
+    programNode.appendChild(document.createElement("br"));
 }
 
 function load_dcf_tools() {
@@ -126,5 +132,7 @@ function setup_trace_area() {
     traceArea.setAttribute("id", "trace_area");
 
     return traceArea;
-
 }
+
+
+
