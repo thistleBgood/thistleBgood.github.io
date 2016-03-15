@@ -9,6 +9,7 @@ function display_tools(displayMode) {
     document.getElementById("ranges_tools").setAttribute("style", "display:" + displayMode);
     document.getElementById("scf_tools").setAttribute("style", "display:" + displayMode);
     document.getElementById("dcf_tools").setAttribute("style", "display:" + displayMode);
+    document.getElementById("create").setAttribute("style", "display:" + displayMode);
 }
 
 
@@ -21,6 +22,8 @@ function add_import_listener (input_button_id, file_display_id) {
         var reader = new FileReader();
 
         reader.readAsText(file);
+
+        makeDownloadFile();
 
         reader.onload = function(e) {
             //console.log("Importing " + file.name);
@@ -139,6 +142,33 @@ function setup_trace_area() {
 
     return traceArea;
 }
+
+function makeDownloadFile () {
+    var textFile = null,
+        makeTextFile = function (text) {
+            var data = new Blob([text], {type: 'text/plain'});
+
+            // If we are replacing a previously generated file we need to
+            // manually revoke the object URL to avoid memory leaks.
+            if (textFile !== null) {
+                window.URL.revokeObjectURL(textFile);
+            }
+
+            textFile = window.URL.createObjectURL(data);
+
+            return textFile;
+        };
+
+
+    var create = document.getElementById('create');
+
+    create.addEventListener('click', function () {
+        var link = document.getElementById('downloadlink');
+        link.href = makeTextFile(newACS.download());
+        link.download = newACS.getName() + ".acs";
+        link.style.display = 'block';
+    }, false);
+};
 
 
 

@@ -1,5 +1,14 @@
 /* From parentChild.html */
 
+function TRACSfile (fileID, nameElement, contentsElement) {
+    this.fileID = fileID;
+    this.nameElement = nameElement;
+    this.contentsElement = contentsElement;
+    this.timeStamp = new Date();
+
+    console.log("Added file " + fileID + " @ " + new Date().toLocaleString());
+}
+
 fileCount = 0;
 varCount = 0;
 
@@ -9,8 +18,9 @@ function addNewVariableTrace(containerID) {
     variableDiv.setAttribute("id", "variable_" + ++varCount);
     variableDiv.setAttribute("title", "Click to edit");
 
-    variableDiv.appendChild(createEditableDiv("name var_name", document.createTextNode("variable")));
+    var contentsDiv = createEditableDiv("name var_name", document.createTextNode("variable"))
 
+    variableDiv.appendChild(contentsDiv);
     variableDiv.appendChild(addNewVariableEntry());
     document.getElementById(containerID).appendChild(variableDiv);
 
@@ -28,18 +38,22 @@ function addNewVariableEntry() {
 
 function addNewFile(containerID, fileClass, fileName, content) {
     var fileDiv = document.createElement("div");
+    var fileID = "file_" + ++fileCount;
     fileDiv.setAttribute("class", fileClass);
-    fileDiv.setAttribute("id", "file_" + ++fileCount);
+    fileDiv.setAttribute("id", fileID);
 
     // if no filename supplied, use default
     if (fileName == "") { fileName = "untitled.txt"; }
 
-    fileDiv.appendChild(createEditableDiv("name", document.createTextNode(fileName)));
-    fileDiv.appendChild(createEditableDiv("", document.createTextNode(content)));
+    var nameDiv = createEditableDiv("name", document.createTextNode(fileName));
+    var contentDiv = createEditableDiv("", document.createTextNode(content));
+    fileDiv.appendChild(nameDiv);
+    fileDiv.appendChild(contentDiv);
 
     document.getElementById(containerID).appendChild(fileDiv);
 
-    console.log("Added file " + fileCount + " @ " + new Date().toLocaleString());
+
+    newACS.addFile(new TRACSfile(fileID, nameDiv, contentDiv));
 }
 
 function addNewEvaluation(containerID) {
