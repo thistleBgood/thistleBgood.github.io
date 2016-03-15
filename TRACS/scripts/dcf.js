@@ -41,6 +41,7 @@ function addNewFile(containerID, fileClass, fileName, content) {
     var fileID = "file_" + ++fileCount;
     fileDiv.setAttribute("class", fileClass);
     fileDiv.setAttribute("id", fileID);
+    fileDiv.setAttribute("title", "Click to edit");
 
     // if no filename supplied, use default
     if (fileName == "") { fileName = "untitled.txt"; }

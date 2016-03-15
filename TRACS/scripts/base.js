@@ -58,6 +58,7 @@ function setup_program_node(fileDisplayArea, fileName, text) {
     nameNode.setAttribute("contenteditable", "");
     nameNode.setAttribute("class", "name");
     nameNode.setAttribute("id", "ACS_filename")
+    nameNode.setAttribute("title", "Click to edit");
     programNode.appendChild(nameNode);
 
     newACS.setupBase(nameNode, text);
@@ -143,6 +144,8 @@ function setup_trace_area() {
     return traceArea;
 }
 
+
+// adapted from http://jsfiddle.net/uselesscode/qm5ag/
 function makeDownloadFile () {
     var textFile = null,
         makeTextFile = function (text) {
