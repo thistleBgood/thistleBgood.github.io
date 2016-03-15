@@ -89,7 +89,7 @@ function create_initial_range_node(programNode, content, rangeID) {
 function load_dcf_tools() {
 
     // default style for w2ui borders
-    var pstyle = "border: 1px solid #dfdfdf; padding: 0.5em;";
+    var pstyle = "border: 1px solid #dfdfdf;";
     var filesContent = setup_files_content();
 
     document.getElementById("layout").setAttribute("style","width: 100%; height: 40em");
@@ -102,10 +102,10 @@ function load_dcf_tools() {
         name: 'layout',
         padding: 4,
         panels: [
-            { type: 'left', size: "30%", resizable: true, content: code_area_content},
+            { type: 'left', style: pstyle, size: "30%", resizable: true, content: code_area_content},
             { type: 'main', style: pstyle, content: traceArea },
-            { type: 'preview', size: "50%", resizable: true, style: pstyle, content: expressionArea},
-            { type: 'right', size: "30%", resizable: true, content: filesContent }
+            { type: 'preview', style: pstyle, size: "50%", resizable: true, style: pstyle + "padding: 0.5em;", content: expressionArea},
+            { type: 'right', style: pstyle, size: "30%", resizable: true, content: filesContent }
         ]
     });
     loadDefaultFiles("fileBox");
@@ -137,7 +137,7 @@ function setup_files_content() {
 
 function setup_trace_area() {
     var traceArea = document.createElement("div");
-
+    traceArea.setAttribute("style", 'background: rgba(255,0,0,0.25);padding:0.5em;');
     traceArea.setAttribute("id", "trace_area");
 
     return traceArea;

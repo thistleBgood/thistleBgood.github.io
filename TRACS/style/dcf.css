@@ -32,6 +32,7 @@
 .variable {
     border: 1px solid gray;
     padding: 0.25em;
+    background: white;
 }
 
 .var_name {
