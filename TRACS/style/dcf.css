@@ -33,6 +33,7 @@
     border: 1px solid gray;
     padding: 0.25em;
     background: white;
+    margin: 0.25em 0;
 }
 
 .var_name {

@@ -20,9 +20,13 @@ function addNewVariableTrace(containerID) {
 
     var contentsDiv = createEditableDiv("name var_name", document.createTextNode("variable"))
 
+    contentsDiv.setAttribute("style", "padding:0 0.5em;");
+
     variableDiv.appendChild(contentsDiv);
     variableDiv.appendChild(addNewVariableEntry());
     document.getElementById(containerID).appendChild(variableDiv);
+
+
 
 
 
@@ -61,7 +65,7 @@ function addNewEvaluation(containerID) {
     var evalDiv = document.createElement("div");
     evalDiv.setAttribute("class", "evaluation");
 
-    evalDiv.appendChild(createEditableDiv("", document.createTextNode("test")));
+    evalDiv.appendChild(createEditableDiv("", document.createTextNode("=")));
 
     document.getElementById(containerID).appendChild(evalDiv);
 }
@@ -81,20 +85,6 @@ function loadDefaultFiles(containerID) {
     addNewFile(containerID, "file out", "<<stdOut>>", "");
     addNewFile(containerID, "file error", "<<stdErr>>", "");
 
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-    addNewEvaluation("expression_area");
-
-    addNewVariableTrace("trace_area");
 
 /*
     var container = document.getElementById(containerID);

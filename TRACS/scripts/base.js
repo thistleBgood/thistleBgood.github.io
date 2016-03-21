@@ -117,6 +117,13 @@ function setup_expression_area() {
     var expressionArea = document.createElement("div");
     expressionArea.setAttribute("id", "expression_area");
 
+    var addExpression = document.createElement("button");
+
+    addExpression.setAttribute("onclick", "addNewEvaluation('expression_area')");
+    addExpression.innerText = "Add Calculation"
+
+    expressionArea.appendChild(addExpression);
+
     return expressionArea;
 }
 
@@ -140,6 +147,13 @@ function setup_trace_area() {
     var traceArea = document.createElement("div");
     traceArea.setAttribute("style", 'background: rgba(255,0,0,0.25);padding:0.5em;');
     traceArea.setAttribute("id", "trace_area");
+
+    var addTrace = document.createElement("button");
+
+    addTrace.setAttribute("onclick", "addNewVariableTrace('trace_area')");
+    addTrace.innerText = "Add variable";
+
+    traceArea.appendChild(addTrace);
 
     return traceArea;
 }

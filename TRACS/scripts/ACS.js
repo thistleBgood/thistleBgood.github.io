@@ -61,7 +61,7 @@ ACS.prototype.download = function () {
     for (var i in this.dcf.files) {
         blob += ("\n\t\t\tfileID:" + this.dcf.files[i].fileID);
         blob += ("\n\t\t\tname:" + this.dcf.files[i].nameElement.innerText);
-        blob += ("\n\t\t\tcontents:" + this.dcf.files[i].contentsElement.innerText);
+        blob += ("\n\t\t\tcontents:\n" + this.dcf.files[i].contentsElement.innerText);
         blob += ("\n\t\t\tcreated:" + this.dcf.files[i].timeStamp.toString());
     }
 
