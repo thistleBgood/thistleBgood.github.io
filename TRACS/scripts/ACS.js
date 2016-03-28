@@ -42,11 +42,11 @@ logAllEntries = function (listOfEntries) {
 ACS.prototype.download = function () {
     var blob = "";
     blob += ("ACS:{");
-    blob += ("\n\tbase:{");
+    blob += ("\n\tsource:{");
     blob += ("\n\t\tcreated:" + this.base.timestamp.toString());
-    blob += (",\n\t\tname:" + this.getName());
+    blob += (",\n\t\tname:" + this.getName());;
     blob += (",\n\t\ttext:\n" + this.base.text);
-    blob += ("\n\t},\n\tranges:{");
+    blob += ("\n\t},\n\tprogram_units:{");
     blob += logAllEntries(this.base.ranges);
     blob += ("\n\t},\n\tscf:{");
     blob += ("\n\t},\n\tdcf:{");
@@ -56,7 +56,6 @@ ACS.prototype.download = function () {
     blob += logAllEntries(this.dcf.variables);
     blob += ("\n\t\t},\n\t\tevaluations:{");
     blob += logAllEntries(this.dcf.evaluations);
-
     blob += ("\n\t\t},\n\t\tfiles:{");
     for (var i in this.dcf.files) {
         blob += ("\n\t\t\tfileID:" + this.dcf.files[i].fileID);

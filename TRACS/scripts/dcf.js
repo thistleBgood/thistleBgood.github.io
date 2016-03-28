@@ -75,7 +75,7 @@ function addNewEvaluation(containerID) {
     var evalDiv = document.createElement("div");
     evalDiv.setAttribute("class", "evaluation");
 
-    evalDiv.appendChild(createEditableDiv("", document.createTextNode("=")));
+    evalDiv.appendChild(createEditableDiv("", document.createTextNode("[enter calculation steps here]")));
 
     document.getElementById(containerID).appendChild(evalDiv);
 }

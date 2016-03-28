@@ -123,6 +123,7 @@ function setup_expression_area() {
     addExpression.innerText = "Add Calculation"
 
     expressionArea.appendChild(addExpression);
+    expressionArea.appendChild(document.createElement("br"));
 
     return expressionArea;
 }
