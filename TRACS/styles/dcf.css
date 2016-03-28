@@ -49,9 +49,22 @@
 }
 
 .variable_entry {
-    color: green;
     display: inline-block;
     padding: 0.25em;
-    border: 1px dashed green;
     margin: 0.25em;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.variable_entry:last-child{
+    text-decoration: none;
+    color: black;
+}
+
+.variable_entry:after{
+    content: ";";
+}
+
+.variable_entry:last-child:after{
+    content: "";
 }

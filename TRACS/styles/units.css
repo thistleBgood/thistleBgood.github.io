@@ -63,6 +63,7 @@
     border: 1px solid blue;
     border-top: 1px transparent;
     margin: 0.1em;
+    display: inline-block;
     background-color:rgba(255,255,255,0.5);
 }
 
