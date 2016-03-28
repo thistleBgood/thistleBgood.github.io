@@ -120,7 +120,7 @@ function setup_expression_area() {
     var addExpression = document.createElement("button");
 
     addExpression.setAttribute("onclick", "addNewEvaluation('expression_area')");
-    addExpression.innerText = "Add Calculation"
+    addExpression.innerText = "Add calculation"
 
     expressionArea.appendChild(addExpression);
     expressionArea.appendChild(document.createElement("br"));
