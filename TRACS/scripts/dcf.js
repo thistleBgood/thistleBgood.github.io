@@ -14,30 +14,40 @@ varCount = 0;
 
 function addNewVariableTrace(containerID) {
     var variableDiv = document.createElement("div");
+
+    var vdivID = "variable_" + ++varCount;
+
     variableDiv.setAttribute("class", "variable");
-    variableDiv.setAttribute("id", "variable_" + ++varCount);
+    variableDiv.setAttribute("id", vdivID);
     variableDiv.setAttribute("title", "Click to edit");
 
-    var contentsDiv = createEditableDiv("name var_name", document.createTextNode("variable"))
-
-    contentsDiv.setAttribute("style", "padding:0 0.5em;");
+    var contentsDiv = createEditableDiv("name var_name", document.createTextNode("variable"));
 
     variableDiv.appendChild(contentsDiv);
-    variableDiv.appendChild(addNewVariableEntry());
     document.getElementById(containerID).appendChild(variableDiv);
 
+    var entryDiv = document.createElement("div");
+    entryDiv.setAttribute("class", "var_entries");
 
+    variableDiv.appendChild(entryDiv);
 
+    addNewVariableEntry(vdivID);
 
+    var addEntry = document.createElement("button");
+
+    addEntry.setAttribute("title", "Add new trace entry");
+    addEntry.setAttribute("onclick", "addNewVariableEntry('" + vdivID + "')");
+    addEntry.innerText = "+";
+
+    variableDiv.appendChild(addEntry);
 
     console.log("Added variable " + varCount + " @ " + new Date().toLocaleString());
 }
 
-function addNewVariableEntry() {
-    var entryDiv = document.createElement("div");
-    entryDiv.setAttribute("class", "var_entries");
-    entryDiv.appendChild(createEditableDiv("variable_entry", document.createTextNode(".")));
-    return entryDiv;
+function addNewVariableEntry(containerID) {
+    var entriesDiv = document.getElementById(containerID).getElementsByClassName("var_entries");
+    console.log(entriesDiv);
+    entriesDiv[0].appendChild(createEditableDiv("variable_entry", document.createTextNode("new value (step)")));
 }
 
 function addNewFile(containerID, fileClass, fileName, content) {

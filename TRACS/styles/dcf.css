@@ -41,6 +41,7 @@
     position: relative;
     border:none;
 
+    margin: 0;
 }
 
 .var_entries {
@@ -50,7 +51,6 @@
 .variable_entry {
     color: green;
     display: inline-block;
-    float: left;
     padding: 0.25em;
     border: 1px dashed green;
     margin: 0.25em;
