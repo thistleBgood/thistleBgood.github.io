@@ -1,60 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
+<head>
+    <meta charset="utf-8" />
 
-        <!--<link rel="import" href="header.html">-->
-        <link rel="stylesheet" href="styles/style.css" />
-        <link rel="stylesheet" href="styles/source.css" />
-        <link rel="stylesheet" href="styles/units.css" />
-        <link rel="stylesheet" href="styles/scf.css" />
-        <link rel="stylesheet" href="styles/dcf.css" />
-        <title>TRACS Online</title>
+    <!--<link rel="import" href="header.html">-->
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/source.css" />
+    <link rel="stylesheet" href="styles/units.css" />
+    <link rel="stylesheet" href="styles/scf.css" />
+    <link rel="stylesheet" href="styles/dcf.css" />
+    <title>TRACS Online</title>
 
-    </head>
-    <body>
-        
-        <div class="title">
-            <a href="index.html">
-            <span class="capital">TRACS</span> -
-            <span class="capital">T</span>eaching
-            <span class="capital">R</span>esource for 
-            <span class="capital">A</span>nnotating 
-            <span class="capital">C</span>ode 
-            <span class="capital">S</span>amples
-            </a>
-        </div>
-        <hr>
-        <div class="main">
-            <h2>Using TRACS Online<h2>
-            
-            <h3>Step 1 - Import File</h3>
-            <p>Upload the file you want to annotate by clicking on the "Import" button and navigating to the location of your file. TRACS will automatically add some <em>range</em> annotations to the file before displaying it on screen.</p>
-            
-            <h3>Step 2 - Range annotations</h3>
-            <p>TRACS assumes that every line is an individual <em>statement</em>. Although this is the case most of the time, sometimes there are more than one per line, and sometimes they span across multiple lines. <span class="unimplemented">The contextual menu will allow you to make changes as appropriate.</span></p>
-            <p>Once the main structure of the statements is in place, you can begin to add <em>expression</em> ranges to the code. To do this, just highlight the code and click "Annotate". You can nest both <em>statements</em> and <em>expressions</em> inside one another. <span class="unimplemented">If you make a mistake, you can also switch which type of range it is by clicking the contextual menu.</span></p>
-                        
-            <hr>
-            
-            <h3>Upcoming features:</h3>
-            
-            <h3><span class="unimplemented">Step 3 - Static Control Flow</span></h3>
-            <p>To add <em>static control flow arrows</em>, click and drag from one <em>range</em> to another. To add <em>decision points</em>, click and drag from a <em>range</em> that already has an <em>arrow</em> coming from it.</p>
-            
-            <h3><span class="unimplemented">Step 4 - Dynamic Control Flow</span></h3>
-            <p>The <em>dynamic control flow</em> layer consists of three parts:</p>
-            <ul>
-                <li>A <em>trace table</em> in the top middle section;</li>
-                <li>An <em>evaluator</em> in the bottom middle section;</li>
-                <li>And a <em>files</em> section in the right hand section.</li>
-            </ul>
-            <p>Each section starts out empty. <em>Files</em> starts out with three default file locations: <b>stdin</b>, <b>stdout</b> and <b>stderr</b>. If you don't need the files, or you want to add more, you can do this through the contextual menu.</p>
-            <p>There is also a <em>step counter</em>, which allows you to move forwards or backwards through the execution of the program.</p>
-            <p>To add an entry to any of the three sections, click on the <span class="plus">+</span> button. Fill in the value and it will automatically be marked with the current <em>step</em>. To modify a previously entered value, just click on the pop up contextual menu.</p>
-            <p>You can also have multiple <em>dynamic control flow</em> layers, each with different values and <em>files</em>.</p>
-            
-        </div>
-    </body>
-    
+</head>
+<body>
+
+<div class="title">
+    <a href="index.html">
+        <span class="capital">TRACS</span> -
+        <span class="capital">T</span>eaching
+        <span class="capital">R</span>esource for
+        <span class="capital">A</span>nnotating
+        <span class="capital">C</span>ode
+        <span class="capital">S</span>amples
+    </a>
+</div>
+<hr>
+<div class="main">
+    <h2>Using TRACS Online<h2>
+
+        <h3>Step 1 - Import File</h3>
+        <p>Upload the file you want to annotate by clicking on the "Import" button and navigating to the location of your file. TRACS will automatically add some <em>program unit</em> annotations to the file before displaying it on screen.</p>
+
+        <h3>Step 2 - Program unit annotations</h3>
+        <p>There are three kinds of program units:</p>
+        <ul>
+            <li><em>Commands</em> - code that is executed to affect the state of the system.</li>
+            <li><em>Expressions</em> - code that is evaluated to get a value.</li>
+            <li><em>Comments</em> - sections of code that don't directly affect the program.</li>
+        </ul>
+        <p>When the file is imported, TRACS assumes that every line is an individual <em>command</em>.</p>
+        <p>To add your own annotations, just click and highlight the code then click the appropriate button.</p>
+
+            <span class="unimplemented"><h3>Step 3 - Static Control Flow</h3>
+            <p>To add <em>static control flow arrows</em>, click and drag from one <em>range</em> to another.</p></span>
+
+        <h3>Step 4 - Dynamic Control Flow</h3>
+        <p>The <em>dynamic control flow</em> layer consists of three parts:</p>
+        <ul>
+            <li>A <em>trace table</em> (the top middle section)</li>
+            <li>An <em>evaluator</em> (the bottom middle section)</li>
+            <li>And a <em>files</em> (the right hand section)</li>
+        </ul>
+        <p>The <em>files</em> area starts out with three standard files: <b>stdin</b>, <b>stdout</b> and <b>stderr</b>. The others start out with no entries.</p>
+        <p>To add an entry to any of the three sections, click on the <span class="plus">Add</span> button. Fill in the values, and note down which <em>step</em> step the operation happened on. You can edit the names of any of the files of </p>
+</div>
+</body>
+
 </html>
